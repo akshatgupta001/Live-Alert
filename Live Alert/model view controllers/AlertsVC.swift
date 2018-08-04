@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlertsVC: UITableViewController {
+class AlertsVC: UIViewController {
      
 
     @IBAction func backPressed(_ sender: Any) {
@@ -18,7 +18,7 @@ class AlertsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      navBar.prefersLargeTitles = true
+      
     }
    
   

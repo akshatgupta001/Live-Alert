@@ -17,6 +17,9 @@ class DevicesTableCell: UITableViewCell {
     func setLabel(name : String){
         self.name.text = name 
     }
+    func setImg(img : UIImage){
+        self.icon.image = img
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

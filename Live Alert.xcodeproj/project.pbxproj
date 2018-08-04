@@ -31,6 +31,8 @@
 		E0F3266321106527007D0134 /* settingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3266121106527007D0134 /* settingTableCell.swift */; };
 		E0F3266421106527007D0134 /* settingTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F3266221106527007D0134 /* settingTableCell.xib */; };
 		E0F32666211070DB007D0134 /* AlertsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F32665211070DB007D0134 /* AlertsVC.swift */; };
+		E0F3267221137703007D0134 /* ActionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3267121137703007D0134 /* ActionHeaderView.swift */; };
+		E0F3267421137728007D0134 /* ActionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F3267321137728007D0134 /* ActionHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		E0F3266121106527007D0134 /* settingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingTableCell.swift; sourceTree = "<group>"; };
 		E0F3266221106527007D0134 /* settingTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = settingTableCell.xib; sourceTree = "<group>"; };
 		E0F32665211070DB007D0134 /* AlertsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsVC.swift; sourceTree = "<group>"; };
+		E0F3267121137703007D0134 /* ActionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHeaderView.swift; sourceTree = "<group>"; };
+		E0F3267321137728007D0134 /* ActionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 				E0CEF2FD210B39C3000D476B /* AutomationTableCell.swift */,
 				E0CEF2FE210B39C3000D476B /* AutomationTableCell.xib */,
 				E0CEF301210B5A03000D476B /* AutomationCellModel.swift */,
+				E0F3267121137703007D0134 /* ActionHeaderView.swift */,
+				E0F3267321137728007D0134 /* ActionHeaderView.xib */,
 			);
 			path = "action-TableViewCell";
 			sourceTree = "<group>";
@@ -212,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0F3265D210F42AC007D0134 /* DevicesTableCell.xib in Resources */,
+				E0F3267421137728007D0134 /* ActionHeaderView.xib in Resources */,
 				E0CEF2FC210B39A9000D476B /* quickActionTableCell.xib in Resources */,
 				E0CEF2E2210AE9FD000D476B /* LaunchScreen.storyboard in Resources */,
 				E0CEF2ED210B05AC000D476B /* Assets.xcassets in Resources */,
@@ -233,6 +240,7 @@
 				E0CEF2EF210B075D000D476B /* ActionVC.swift in Sources */,
 				E0F32654210F1EF0007D0134 /* TimelineTableCell.swift in Sources */,
 				E0CEF302210B5A03000D476B /* AutomationCellModel.swift in Sources */,
+				E0F3267221137703007D0134 /* ActionHeaderView.swift in Sources */,
 				E0CEF2F3210B0782000D476B /* SettingVC.swift in Sources */,
 				E0F32658210F1F38007D0134 /* CamerasTableCell.swift in Sources */,
 				E0CEF2DA210AE9FB000D476B /* SplashScreenVC.swift in Sources */,
@@ -391,6 +399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J32C9YHJ44;
 				INFOPLIST_FILE = "Live Alert/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,6 +418,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J32C9YHJ44;
 				INFOPLIST_FILE = "Live Alert/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

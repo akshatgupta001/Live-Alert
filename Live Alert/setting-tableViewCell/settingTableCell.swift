@@ -9,12 +9,21 @@
 import UIKit
 
 class settingTableCell: UITableViewCell {
-
+    
+     let imgView = UIImageView(image: #imageLiteral(resourceName: "settings"))
+    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var label: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        imgView.sizeToFit()
+        imgView.frame = CGRect(x: 2, y: 2, width: 36, height: 36)
+        
+        
+        view.addSubview(imgView)
     }
-
+  
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

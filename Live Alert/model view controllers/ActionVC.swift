@@ -9,11 +9,17 @@
 import UIKit
 
 class ActionVC: subView,UITableViewDelegate,UITableViewDataSource{
-   
-
+   static let sharedAction = ActionVC()
+    
+    @IBOutlet weak var addActionBtn: UIButton!
+    
     //local variable
     var automationArray : [String] = ["Auto Away", "Auto Home"]
-    var quickActionArray : [String] = ["Home Mode", "Photo Status"]
+    var quickActionArray : [String] = ["Home Mode", "Photo Status",]
+    var quickActionRows : [[String]] = [["Change System Mode to home","Capture images from all motion cameras"],
+                                        ["Capture images from all motion cameras"]
+                                       ]
+    var quickActionVisible : [Bool] = [false,false]
     var feedAutomationModelArray =  [AutomationCellModel]()
     //outlets
     @IBOutlet weak var quickActionView: UIView!
@@ -26,10 +32,14 @@ class ActionVC: subView,UITableViewDelegate,UITableViewDataSource{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addActionBtn.layer.cornerRadius = addActionBtn.bounds.height/10
+        
         quickActionTableView.delegate = self
         quickActionTableView.dataSource = self
         quickActionTableView.register(quickActionTableCell.self, forCellReuseIdentifier: "quickActionCell")
         quickActionTableView.register(UINib(nibName: "quickActionTableCell", bundle: nil), forCellReuseIdentifier: "quickActionCell")
+        quickActionTableView.register(ActionHeaderView.self, forHeaderFooterViewReuseIdentifier: "actionHeaderView")
+        quickActionTableView.register(UINib(nibName: "ActionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "actionHeaderView")
         
         automationTableView.register(AutomationTableCell.self, forCellReuseIdentifier: "AutomationCell")
          automationTableView.register(UINib(nibName: "AutomationTableCell", bundle: nil), forCellReuseIdentifier: "AutomationCell")
@@ -57,12 +67,71 @@ class ActionVC: subView,UITableViewDelegate,UITableViewDataSource{
     
     //Table View functions
      //assign values in table
+   
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       if tableView == quickActionTableView
+       {
+         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "actionHeaderView")
+       // headerView?.detailTextLabel?.text = "hi"
+        
+        
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(#imageLiteral(resourceName: "right-arrow"), for: .normal)
+        button.frame = CGRect(x: 320, y: 15, width: 30, height: 30)
+        button.tag = section
+        button.addTarget(self, action: #selector(toggle), for: .touchUpInside)
+        headerView?.addSubview(button)
+      //  headerView?.addSubview(label)
+       // headerView?.backgroundColor = UIColor.gray
+        let header = headerView as! ActionHeaderView
+        header.label.text = quickActionArray[section]
+        
+        return header
+        
+        }
+        return UIView()
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if tableView == quickActionTableView{
+           return 60
+        }
+        return 0
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if tableView == quickActionTableView{
+            return quickActionArray.count
+        }
+        return 1
+    }
+    
+    @objc func toggle(sender : UIButton){
+  
+        var indexPaths = [IndexPath]()
+        for i in 0..<quickActionRows[sender.tag].count {
+            
+            indexPaths.append(IndexPath(row: i, section: sender.tag))
+        }
+        if quickActionVisible[sender.tag] == false {
+                            quickActionVisible[sender.tag] = true
+                            quickActionTableView.insertRows(at: indexPaths, with: .fade)
+            
+                        }else{
+                             quickActionVisible[sender.tag] = false
+                              quickActionTableView.deleteRows(at: indexPaths, with: .fade)
+                        }
+        print(sender.tag)
+        print(quickActionVisible[sender.tag])
+        
+       
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var returnCell = UITableViewCell()
         if tableView == quickActionTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "quickActionCell", for: indexPath) as! quickActionTableCell
             
-                cell.label.text = quickActionArray[indexPath.row]
+                cell.label.text = quickActionRows[indexPath.section][indexPath.row]
+            
             
             returnCell = cell
             
@@ -93,15 +162,14 @@ class ActionVC: subView,UITableViewDelegate,UITableViewDataSource{
         if tableView == automationTableView {
             return 2
         }else{
-            return 2
+            if quickActionVisible[section] == true {
+                return quickActionRows[section].count
+            }else{
+                return 0
+            }
         
-    }
+        }
    
-    
-   
-
-   
-    
     }
 }
 extension ActionVC : automationCellDelegate {

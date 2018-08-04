@@ -15,18 +15,26 @@ class subView: UIViewController {
     public func setTitle(title : String){
          let navItem = UINavigationItem(title: title)
         
-       
+      
+        
        let alertBtn = UIButton(type: UIButtonType.custom)
-        alertBtn.setImage(#imageLiteral(resourceName: "alert"), for: .normal)
-        alertBtn.frame = CGRect(x: 0, y: 0, width: 80, height: 50)
+        alertBtn.setImage(#imageLiteral(resourceName: "alert-1"), for: .normal)
+        alertBtn.frame = CGRect(x: 100, y: 0, width: 80, height: 50)
         alertBtn.addTarget(self, action: #selector(alertsPressed), for: UIControlEvents.touchUpInside)
+        
+//        let AlertBox = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
+//        AlertBox.text = "Alert"
+//        AlertBox.textAlignment = .right
+//        AlertBox.sizeToFit()
         
         let modeBtn = UIButton(type: UIButtonType.custom)
         modeBtn.setImage(#imageLiteral(resourceName: "standby"), for: .normal)
         modeBtn.frame = CGRect(x: 0, y: 0, width: 80, height: 50)
+        modeBtn.sizeToFit()
         modeBtn.addTarget(self, action: #selector(modePressed), for: UIControlEvents.touchUpInside)
          navItem.leftBarButtonItem = UIBarButtonItem(customView: modeBtn)
-        navItem.rightBarButtonItem = UIBarButtonItem(customView: alertBtn)
+        
+        navItem.rightBarButtonItems = [UIBarButtonItem(customView: alertBtn)]
         navbar.items = [navItem]
          
 

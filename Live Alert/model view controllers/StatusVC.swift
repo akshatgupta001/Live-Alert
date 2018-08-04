@@ -13,6 +13,7 @@ class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
    var cameraFeed : [UIImage] = [#imageLiteral(resourceName: "video1"),#imageLiteral(resourceName: "video2")]
     var deviceList : [[String]]!
     var deviceType : [String]!
+    var deviceImg : [[UIImage]]!
 //views
 
     @IBOutlet weak var view_timeline: UIView!
@@ -29,11 +30,14 @@ class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
     
     //outlets
     @IBOutlet weak var segment: UISegmentedControl!
+    @IBOutlet weak var addGroupBtn: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         feedDevice()
+        addGroupBtn.layer.cornerRadius = addGroupBtn.bounds.height/10
+        
         
          timelineTableView.dataSource = self
         timelineTableView.delegate = self
@@ -118,7 +122,9 @@ class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
         if tableView == devicesTableView{
             let label = UILabel()
             label.frame = CGRect(x: 10, y: 0, width: 375, height: 55)
-            label.backgroundColor = UIColor.gray
+            label.textAlignment = .center
+            label.backgroundColor = UIColor.darkGray
+            label.textColor = UIColor.white
             label.text = deviceType[section]
             return label
         }
@@ -143,6 +149,7 @@ class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath) as! DevicesTableCell
             let text = deviceList[indexPath.section][indexPath.row]
             cell.setLabel(name: text)
+            cell.setImg(img: deviceImg[indexPath.section][indexPath.row])
             returnCell = cell
             break
         default:
@@ -171,6 +178,13 @@ class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
                       ["OCCU sensor", "Glass Break Sensor"],
                       ["Remote"]
                       ]
+        deviceImg = [
+                      [#imageLiteral(resourceName: "door_open_black"), #imageLiteral(resourceName: "door_close_black"), #imageLiteral(resourceName: "door_close_black"),#imageLiteral(resourceName: "door_open_black"),#imageLiteral(resourceName: "door_close_black")],
+                      [#imageLiteral(resourceName: "occupancy_sensor"),#imageLiteral(resourceName: "sensor_motion"),#imageLiteral(resourceName: "sensor_motion")],
+                      [#imageLiteral(resourceName: "webcam")],
+                      [#imageLiteral(resourceName: "occupancy_sensor"),#imageLiteral(resourceName: "sensor_motion")],
+                      [#imageLiteral(resourceName: "remote-control")]
+        ]
     }
 
 }
