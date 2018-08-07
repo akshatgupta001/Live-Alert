@@ -49,7 +49,7 @@ class subView: UIViewController {
         performSegue(withIdentifier: "showAlert", sender: (Any).self)
     }
     @objc func modePressed(){
-        
+        performSegue(withIdentifier: "showMode", sender: (Any).self)
     }
 }
 

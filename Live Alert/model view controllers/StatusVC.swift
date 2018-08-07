@@ -10,6 +10,9 @@ import UIKit
 
 class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
     //var
+    var timelineLabelArray : [String] = ["Front Entry Door Opened","Patio Door Opened", "Front Entry Door Closed","Front Entry Door Opened", "Front Entry Door Closed","Front Entry Door Opened","Patio Door Closed","Front Entry Door Closed","Front Entry Door Opened","Patio Door Opened", "Front Entry Door Closed","Front Entry Door Opened"  ]
+    var timelineTimeArray : [String] = ["08/05/18 @ 07:55 AM","08/05/18 @ 05:07 AM","08/05/18 @ 04:37 AM","08/05/18 @ 03:07 AM","08/05/18 @ 02:47 AM","08/05/18 @ 02:07 AM","08/05/18 @ 01:17 AM","08/05/18 @ 01:07 AM","08/05/18 @ 07:55 AM","08/05/18 @ 05:07 AM","08/05/18 @ 04:37 AM","08/05/18 @ 03:07 AM"]
+    var img : [Int] = [1,1,2,1,2,1,2,2,1,1,2,1]
    var cameraFeed : [UIImage] = [#imageLiteral(resourceName: "video1"),#imageLiteral(resourceName: "video2")]
     var deviceList : [[String]]!
     var deviceType : [String]!
@@ -91,7 +94,7 @@ class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case timelineTableView:
-            return 10
+            return timelineLabelArray.count
         case cameraTableView:
             return 2
         case devicesTableView:
@@ -137,6 +140,9 @@ class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
         switch tableView {
         case timelineTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "timelineCell", for: indexPath) as! TimelineTableCell
+            cell.label.text = timelineLabelArray[indexPath.row]
+            cell.timeline.text = timelineTimeArray[indexPath.row]
+            cell.setImg(num: img[indexPath.row])
             returnCell = cell
             break
         case cameraTableView:

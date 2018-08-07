@@ -10,6 +10,10 @@ import UIKit
 
 class TimelineTableCell: UITableViewCell {
 
+    @IBOutlet weak var imgview: UIImageView!
+    
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var timeline: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +23,13 @@ class TimelineTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func setImg(num : Int){
+        if num == 1 {
+            self.imgview.image = #imageLiteral(resourceName: "door_open_black")
+        }else {
+            self.imgview.image = #imageLiteral(resourceName: "door_close_black")
+        }
     }
     
 }

@@ -47,6 +47,11 @@
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgview" destination="a8F-Rh-qeV" id="sSp-hz-5sh"/>
+                <outlet property="label" destination="i0c-TQ-tPd" id="hw9-rh-QE9"/>
+                <outlet property="timeline" destination="8cv-MV-zkv" id="Pvd-PM-5bE"/>
+            </connections>
             <point key="canvasLocation" x="104" y="148.5"/>
         </tableViewCell>
     </objects>

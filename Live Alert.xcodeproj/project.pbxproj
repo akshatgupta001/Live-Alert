@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0620FF621198B57003E6486 /* ModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0620FF521198B57003E6486 /* ModeVC.swift */; };
 		E0CEF2D8210AE9FB000D476B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CEF2D7210AE9FB000D476B /* AppDelegate.swift */; };
 		E0CEF2DA210AE9FB000D476B /* SplashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CEF2D9210AE9FB000D476B /* SplashScreenVC.swift */; };
 		E0CEF2DD210AE9FB000D476B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0CEF2DB210AE9FB000D476B /* Main.storyboard */; };
@@ -33,9 +34,12 @@
 		E0F32666211070DB007D0134 /* AlertsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F32665211070DB007D0134 /* AlertsVC.swift */; };
 		E0F3267221137703007D0134 /* ActionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F3267121137703007D0134 /* ActionHeaderView.swift */; };
 		E0F3267421137728007D0134 /* ActionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F3267321137728007D0134 /* ActionHeaderView.xib */; };
+		E0F326782115941A007D0134 /* AlertTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F326762115941A007D0134 /* AlertTableCell.swift */; };
+		E0F326792115941A007D0134 /* AlertTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F326772115941A007D0134 /* AlertTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E0620FF521198B57003E6486 /* ModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeVC.swift; sourceTree = "<group>"; };
 		E0CEF2D4210AE9FB000D476B /* Live Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0CEF2D7210AE9FB000D476B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0CEF2D9210AE9FB000D476B /* SplashScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVC.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		E0F32665211070DB007D0134 /* AlertsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsVC.swift; sourceTree = "<group>"; };
 		E0F3267121137703007D0134 /* ActionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHeaderView.swift; sourceTree = "<group>"; };
 		E0F3267321137728007D0134 /* ActionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionHeaderView.xib; sourceTree = "<group>"; };
+		E0F326762115941A007D0134 /* AlertTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableCell.swift; sourceTree = "<group>"; };
+		E0F326772115941A007D0134 /* AlertTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +83,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E0620FF22115C47A003E6486 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E0CEF2CB210AE9FB000D476B = {
 			isa = PBXGroup;
 			children = (
 				E0CEF2D6210AE9FB000D476B /* Live Alert */,
 				E0CEF2D5210AE9FB000D476B /* Products */,
+				E0620FF22115C47A003E6486 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +110,7 @@
 		E0CEF2D6210AE9FB000D476B /* Live Alert */ = {
 			isa = PBXGroup;
 			children = (
+				E0F3267521159392007D0134 /* alert-tableViewCell */,
 				E0CEF2F4210B2778000D476B /* action-TableViewCell */,
 				E0F32651210F1CEF007D0134 /* status-TableViewCell */,
 				E0F32660211064B7007D0134 /* setting-tableViewCell */,
@@ -119,6 +134,7 @@
 				E0CEF2F0210B076F000D476B /* StatusVC.swift */,
 				E0CEF2F2210B0782000D476B /* SettingVC.swift */,
 				E0F32665211070DB007D0134 /* AlertsVC.swift */,
+				E0620FF521198B57003E6486 /* ModeVC.swift */,
 			);
 			path = "model view controllers";
 			sourceTree = "<group>";
@@ -159,6 +175,15 @@
 			path = "setting-tableViewCell";
 			sourceTree = "<group>";
 		};
+		E0F3267521159392007D0134 /* alert-tableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0F326762115941A007D0134 /* AlertTableCell.swift */,
+				E0F326772115941A007D0134 /* AlertTableCell.xib */,
+			);
+			path = "alert-tableViewCell";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,6 +216,14 @@
 				TargetAttributes = {
 					E0CEF2D3210AE9FB000D476B = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -226,6 +259,7 @@
 				E0CEF300210B39C3000D476B /* AutomationTableCell.xib in Resources */,
 				E0F32659210F1F38007D0134 /* CamerasTableCell.xib in Resources */,
 				E0F32655210F1EF0007D0134 /* TimelineTableCell.xib in Resources */,
+				E0F326792115941A007D0134 /* AlertTableCell.xib in Resources */,
 				E0F3266421106527007D0134 /* settingTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +274,7 @@
 				E0CEF2EF210B075D000D476B /* ActionVC.swift in Sources */,
 				E0F32654210F1EF0007D0134 /* TimelineTableCell.swift in Sources */,
 				E0CEF302210B5A03000D476B /* AutomationCellModel.swift in Sources */,
+				E0620FF621198B57003E6486 /* ModeVC.swift in Sources */,
 				E0F3267221137703007D0134 /* ActionHeaderView.swift in Sources */,
 				E0CEF2F3210B0782000D476B /* SettingVC.swift in Sources */,
 				E0F32658210F1F38007D0134 /* CamerasTableCell.swift in Sources */,
@@ -248,6 +283,7 @@
 				E0CEF2D8210AE9FB000D476B /* AppDelegate.swift in Sources */,
 				E0F3265F21104097007D0134 /* subView.swift in Sources */,
 				E0F32666211070DB007D0134 /* AlertsVC.swift in Sources */,
+				E0F326782115941A007D0134 /* AlertTableCell.swift in Sources */,
 				E0F3265C210F42AC007D0134 /* DevicesTableCell.swift in Sources */,
 				E0CEF2FF210B39C3000D476B /* AutomationTableCell.swift in Sources */,
 				E0CEF2FB210B39A9000D476B /* quickActionTableCell.swift in Sources */,
@@ -404,7 +440,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "livealert.Live-Alert";
+				PRODUCT_BUNDLE_IDENTIFIER = livealert.LiveAlert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -423,7 +459,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "livealert.Live-Alert";
+				PRODUCT_BUNDLE_IDENTIFIER = livealert.LiveAlert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
