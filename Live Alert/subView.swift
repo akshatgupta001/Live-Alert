@@ -10,7 +10,7 @@ import UIKit
 
 
 class subView: UIViewController {
-    let navbar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: 50));
+    let navbar = UINavigationBar(frame: CGRect(x: 0, y: 40, width: UIScreen.main.bounds.size.width, height: 50));
 
     public func setTitle(title : String){
          let navItem = UINavigationItem(title: title)
