@@ -10,8 +10,8 @@ import UIKit
 
 
 class subView: UIViewController {
-    let navbar = UINavigationBar(frame: CGRect(x: 0, y: 40, width: UIScreen.main.bounds.size.width, height: 50));
-
+    let navbar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: 50));
+     let modeBtn = UIButton(type: UIButtonType.custom)
     public func setTitle(title : String){
          let navItem = UINavigationItem(title: title)
         
@@ -22,15 +22,28 @@ class subView: UIViewController {
         alertBtn.frame = CGRect(x: 100, y: 0, width: 80, height: 50)
         alertBtn.addTarget(self, action: #selector(alertsPressed), for: UIControlEvents.touchUpInside)
         
-//        let AlertBox = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
-//        AlertBox.text = "Alert"
+//        let modeBox = UILabel(frame: CGRect(x: 0, y: 5, width: 60, height: 30))
+//        modeBox.textAlignment = .center
+//        modeBox.text = "mode"
+//        modeBox.font = UIFont(name: "Avenir Next", size: 13)
+//        modeBox.backgroundColor = UIColor.black
+//        modeBox.textColor = UIColor.white
+//
 //        AlertBox.textAlignment = .right
 //        AlertBox.sizeToFit()
         
-        let modeBtn = UIButton(type: UIButtonType.custom)
-        modeBtn.setImage(#imageLiteral(resourceName: "standby"), for: .normal)
-        modeBtn.frame = CGRect(x: 0, y: 0, width: 80, height: 50)
-        modeBtn.sizeToFit()
+       
+        modeBtn.backgroundColor = UIColor.black
+        if let mode = UserDefaults.standard.string(forKey: "mode"){
+            modeBtn.setTitle(mode, for: .normal)
+        }
+        else{
+            modeBtn.setTitle("standby", for: .normal)
+        }
+        modeBtn.setTitleColor(UIColor.white, for: .normal)
+        modeBtn.titleLabel?.font = UIFont(name: "Avenir Next", size: 13)
+       
+        modeBtn.frame = CGRect(x: 0, y: 5, width: 80, height: 30)
         modeBtn.addTarget(self, action: #selector(modePressed), for: UIControlEvents.touchUpInside)
          navItem.leftBarButtonItem = UIBarButtonItem(customView: modeBtn)
         
@@ -38,6 +51,10 @@ class subView: UIViewController {
         navbar.items = [navItem]
          
 
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        changeMode()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +67,14 @@ class subView: UIViewController {
     }
     @objc func modePressed(){
         performSegue(withIdentifier: "showMode", sender: (Any).self)
+    }
+    func changeMode(){
+        if let mode = UserDefaults.standard.string(forKey: "mode"){
+            self.modeBtn.setTitle(mode, for: .normal)
+        }
+        else{
+            self.modeBtn.setTitle("standby", for: .normal)
+        }
     }
 }
 

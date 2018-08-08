@@ -30,7 +30,7 @@ class LoginVC: UIViewController {
         
     }
     @IBAction func SignPressed(_ sender: Any) {
-        performSegue(withIdentifier: "showTabBar", sender: self)
+        performSegue(withIdentifier: "showLogo", sender: self)
     }
     
    

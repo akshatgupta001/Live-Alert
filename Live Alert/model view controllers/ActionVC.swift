@@ -81,15 +81,37 @@ class ActionVC: subView,UITableViewDelegate,UITableViewDataSource{
         button.tag = section
         button.addTarget(self, action: #selector(toggle), for: .touchUpInside)
         headerView?.addSubview(button)
+        var tap = UITapGestureRecognizer(target: self, action: #selector(btnClick0))
+        if section == 1 {
+              tap = UITapGestureRecognizer(target: self, action: #selector(btnClick1))
+        }
+       
+        headerView?.addGestureRecognizer(tap)
+        
       //  headerView?.addSubview(label)
        // headerView?.backgroundColor = UIColor.gray
         let header = headerView as! ActionHeaderView
         header.label.text = quickActionArray[section]
         
+        
+    
         return header
         
         }
         return UIView()
+    }
+
+    @objc func btnClick0(){
+        let button = UIButton(type: .system)
+        button.tag = 0
+        button.addTarget(self, action: #selector(toggle), for: .touchUpInside)
+        button.sendActions(for: .touchUpInside)
+    }
+    @objc func btnClick1(){
+        let button = UIButton(type: .system)
+        button.tag = 1
+        button.addTarget(self, action: #selector(toggle), for: .touchUpInside)
+        button.sendActions(for: .touchUpInside)
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if tableView == quickActionTableView{

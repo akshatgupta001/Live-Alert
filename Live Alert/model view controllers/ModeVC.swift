@@ -9,6 +9,7 @@
 import UIKit
 
 class ModeVC: UIViewController {
+    let preferences = UserDefaults.standard
 
     @IBOutlet weak var AlarmView: UIView!
     @IBOutlet weak var homeView: UIView!
@@ -18,7 +19,25 @@ class ModeVC: UIViewController {
     @IBOutlet weak var awayLbl: UILabel!
     @IBOutlet weak var standbyLbl: UILabel!
     
+    @IBOutlet weak var doorImg: UIImageView!
+    @IBOutlet weak var motionImg: UIImageView!
     override func viewDidLoad() {
+        if preferences.string(forKey: "mode") != nil {
+            switch preferences.string(forKey: "mode") {
+               case "home" :
+                homeTap()
+                break
+               case "away" :
+                awayTap()
+                 break
+               case "standby" :
+                standbyTap()
+                break
+            default :
+                standbyTap()
+                break
+            }
+        }
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: self, action: #selector(close))
         let tapHome = UITapGestureRecognizer(target: self, action:  #selector(homeTap))
@@ -37,16 +56,26 @@ class ModeVC: UIViewController {
     }
     @objc func homeTap(){
       selectView(view: homeView, lbl: homeLbl)
+        doorImg.image = #imageLiteral(resourceName: "radio_on")
+        motionImg.image = #imageLiteral(resourceName: "raadio_off")
+        preferences.set("home", forKey: "mode")
     }
     @objc func awayTap(){
         selectView(view: awayView, lbl: awayLbl)
-        
+        doorImg.image = #imageLiteral(resourceName: "radio_on")
+        motionImg.image = #imageLiteral(resourceName: "radio_on")
+        preferences.set("away", forKey: "mode")
     }
     @objc func standbyTap(){
        selectView(view: standbyView, lbl: standbyLbl)
+        
+        doorImg.image = #imageLiteral(resourceName: "raadio_off")
+        motionImg.image = #imageLiteral(resourceName: "raadio_off")
+        preferences.set("standby", forKey: "mode")
     }
     
      @objc func close(){
+       
         dismiss(animated: true, completion: nil)
     }
 
@@ -59,6 +88,7 @@ class ModeVC: UIViewController {
         self.standbyLbl.textColor = UIColor.black
         view.backgroundColor = UIColor.black
         lbl.textColor = UIColor.white
+        
         
     }
     

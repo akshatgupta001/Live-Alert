@@ -15,7 +15,7 @@ class splashScreenVC : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(changeScreen), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(changeScreen), userInfo: nil, repeats: false)
         
         
     }
@@ -24,7 +24,7 @@ class splashScreenVC : UIViewController {
   
     @objc func changeScreen(){
         loader.stopAnimating()
-        performSegue(withIdentifier: "showLoginVC", sender: Any?.self)
+        performSegue(withIdentifier: "showTabBar", sender: Any?.self)
     }
 }
 

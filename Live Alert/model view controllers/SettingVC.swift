@@ -23,8 +23,8 @@ class SettingVC: subView,UITableViewDelegate, UITableViewDataSource {
         
      profilePic.layer.cornerRadius = profilePic.bounds.height/2
      editBtn.layer.cornerRadius = 10
-        name.text = "Pankaj Manchanda"
-        email.text = "pankaj.manchanda@icloud.com"
+        name.text = "John Doe"
+        email.text = "john.doe2@icloud.com"
         // Do any additional setup after loading the view.
         
         settingsTableView.register(settingTableCell.self, forCellReuseIdentifier: "settingsCell")
