@@ -12,26 +12,15 @@ import UIKit
 class subView: UIViewController {
     let navbar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: 50));
      let modeBtn = UIButton(type: UIButtonType.custom)
+    
+    
+    
     public func setTitle(title : String){
          let navItem = UINavigationItem(title: title)
-        
-      
-        
        let alertBtn = UIButton(type: UIButtonType.custom)
         alertBtn.setImage(#imageLiteral(resourceName: "alert-1"), for: .normal)
         alertBtn.frame = CGRect(x: 100, y: 0, width: 80, height: 50)
         alertBtn.addTarget(self, action: #selector(alertsPressed), for: UIControlEvents.touchUpInside)
-        
-//        let modeBox = UILabel(frame: CGRect(x: 0, y: 5, width: 60, height: 30))
-//        modeBox.textAlignment = .center
-//        modeBox.text = "mode"
-//        modeBox.font = UIFont(name: "Avenir Next", size: 13)
-//        modeBox.backgroundColor = UIColor.black
-//        modeBox.textColor = UIColor.white
-//
-//        AlertBox.textAlignment = .right
-//        AlertBox.sizeToFit()
-        
        
         modeBtn.backgroundColor = UIColor.black
         if let mode = UserDefaults.standard.string(forKey: "mode"){
@@ -44,6 +33,8 @@ class subView: UIViewController {
         modeBtn.titleLabel?.font = UIFont(name: "Avenir Next", size: 13)
        
         modeBtn.frame = CGRect(x: 0, y: 5, width: 80, height: 30)
+        modeBtn.layer.cornerRadius = modeBtn.frame.height/10
+        modeBtn.clipsToBounds = true
         modeBtn.addTarget(self, action: #selector(modePressed), for: UIControlEvents.touchUpInside)
          navItem.leftBarButtonItem = UIBarButtonItem(customView: modeBtn)
         
@@ -58,6 +49,8 @@ class subView: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
        self.view.addSubview(navbar)
        

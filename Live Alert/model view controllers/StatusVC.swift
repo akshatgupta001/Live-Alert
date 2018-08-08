@@ -126,7 +126,8 @@ class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
             let label = UILabel()
             label.frame = CGRect(x: 10, y: 0, width: 375, height: 55)
             label.textAlignment = .center
-            label.backgroundColor = UIColor.darkGray
+            label.backgroundColor = UIColor(red: 127/255.0, green: 127/255.0, blue: 127/255.0, alpha: 1.0)
+            label.backgroundColor = UIColor.lightGray
             label.textColor = UIColor.white
             label.text = deviceType[section]
             return label
@@ -185,7 +186,7 @@ class StatusVC: subView,UITableViewDelegate,UITableViewDataSource {
                       ["Remote"]
                       ]
         deviceImg = [
-                      [#imageLiteral(resourceName: "door_open_black"), #imageLiteral(resourceName: "door_close_black"), #imageLiteral(resourceName: "door_close_black"),#imageLiteral(resourceName: "door_open_black"),#imageLiteral(resourceName: "door_close_black")],
+                      [#imageLiteral(resourceName: "exit_door_open"),#imageLiteral(resourceName: "exit_door_close"),#imageLiteral(resourceName: "exit_door_close"),#imageLiteral(resourceName: "exit_door_open"),#imageLiteral(resourceName: "exit_door_close")],
                       [#imageLiteral(resourceName: "occupancy_sensor"),#imageLiteral(resourceName: "sensor_motion"),#imageLiteral(resourceName: "sensor_motion")],
                       [#imageLiteral(resourceName: "webcam")],
                       [#imageLiteral(resourceName: "occupancy_sensor"),#imageLiteral(resourceName: "sensor_motion")],
